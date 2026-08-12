@@ -20,7 +20,7 @@ No Jenkins shared library calls were present, so no shared library expansion was
 - Jenkins `agent any` maps to `runs-on: ubuntu-latest`.
 - Jenkins `sh 'npm install'` maps to an npm dependency installation step that uses `npm ci` when a lockfile is present and falls back to `npm install`.
 - Jenkins `sh 'npm run build'` maps to a GitHub Actions build step.
-- Jenkins `NETLIFY_SITE_ID = 'classy-paletas-f45a67'` maps to workflow environment variable `NETLIFY_SITE_ID`.
+- Jenkins `NETLIFY_SITE_ID = 'classy-paletas-f45a67'` maps to GitHub Actions repository variable `NETLIFY_SITE_ID`.
 - Jenkins `credentials('netlify-token')` maps to GitHub Actions secret `NETLIFY_AUTH_TOKEN`.
 - Jenkins Netlify deployment maps to a deploy step that runs only for non-pull-request events on `main` or `master`.
 
@@ -51,7 +51,7 @@ Workflow permissions are restricted to `contents: read`.
 | Jenkins credential or variable | GitHub Actions mapping | Required for |
 | --- | --- | --- |
 | `netlify-token` | Repository or environment secret `NETLIFY_AUTH_TOKEN` | Netlify production deployment |
-| `NETLIFY_SITE_ID` | Workflow environment variable `NETLIFY_SITE_ID` | Netlify site selection |
+| `NETLIFY_SITE_ID` | Repository variable `NETLIFY_SITE_ID` | Netlify site selection |
 
 ## Validation
 
