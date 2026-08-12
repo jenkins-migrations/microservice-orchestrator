@@ -11,6 +11,8 @@ Migrated the repository Jenkins pipelines to GitHub Actions workflows and archiv
 | `Jenkinsfile` | Declarative Jenkins pipeline | `.github/ci-archive/Jenkinsfile` | `.github/workflows/build-and-deploy.yml` |
 | `whenconditionscomplex/Jenkinsfile` | Declarative Jenkins pipeline | `.github/ci-archive/whenconditionscomplex/Jenkinsfile` | `.github/workflows/when-conditions-complex.yml` |
 
+The root `Jenkinsfile` was archived at the root of `.github/ci-archive/`; the nested Jenkinsfile preserves its original subdirectory for clarity.
+
 No Jenkins shared library calls were present, so no shared library expansion was required.
 
 ## Workflow Mapping
