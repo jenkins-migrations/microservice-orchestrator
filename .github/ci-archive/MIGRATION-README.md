@@ -55,7 +55,7 @@ Workflow permissions are restricted to `contents: read`.
 
 ## Validation
 
-- GitHub Actions workflow syntax is intended to be validated with `actionlint`.
+- `actionlint .github/workflows/*.yml` passed.
 - Repository build/test validation is limited because this repository does not include application source files, package manifests, or existing test tooling.
 
 ## Knowledge Base Access
