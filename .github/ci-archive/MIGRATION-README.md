@@ -45,7 +45,7 @@ The workflows use verified GitHub-owned actions pinned to immutable commit SHAs:
 | `actions/setup-node` | `v4` | `49933ea5288caeca8642d1e84afbd3f7d6820020` |
 
 Workflow permissions are restricted to `contents: read`.
-Netlify deployments use `netlify-cli@27.1.1` through `npx` so the deployment tool version is pinned.
+Netlify deployments install `netlify-cli@27.1.1` so the deployment tool version is pinned.
 
 ## Required Secrets and Variables
 

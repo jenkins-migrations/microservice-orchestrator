@@ -61,4 +61,5 @@ jobs:
             echo "NETLIFY_AUTH_TOKEN is not configured; skipping Netlify deployment."
             exit 0
           fi
-          npx --yes netlify-cli@27.1.1 deploy --prod --dir=build --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
+          npm install -g netlify-cli@27.1.1
+          netlify deploy --prod --dir=build --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
