@@ -1,0 +1,47 @@
+name: When Conditions Complex
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+      - development
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  RUN_SKIPPED_STAGE: 'false'
+  VALUE_ONE: '1'
+  VALUE_TWO: '2'
+  VALUE_THREE: '3'
+
+jobs:
+  when-conditions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: A stage to be skipped
+        if: ${{ env.RUN_SKIPPED_STAGE == 'true' }}
+        run: echo 'This step will never be run'
+
+      - name: BASIC WHEN - Branch
+        if: ${{ github.ref_name == 'master' }}
+        run: echo 'BASIC WHEN - Master Branch!'
+
+      - name: WHEN EXPRESSION with AND
+        if: ${{ env.VALUE_ONE == '1' && env.VALUE_THREE == '3' }}
+        run: echo 'WHEN with AND expression works!'
+
+      - name: WHEN EXPRESSION with OR
+        if: ${{ env.VALUE_ONE == '1' || env.VALUE_THREE == '2' }}
+        run: echo 'WHEN with OR expression works!'
+
+      - name: AllOf
+        if: ${{ env.VALUE_ONE == '1' && env.VALUE_TWO == '2' }}
+        run: echo 'AllOf Works!!'
+
+      - name: Not AnyOf
+        if: ${{ github.ref_name != 'development' && env.VALUE_TWO != '4' }}
+        run: echo 'Not AnyOf - Works!'
