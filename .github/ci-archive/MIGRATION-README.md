@@ -45,6 +45,7 @@ The workflows use verified GitHub-owned actions pinned to immutable commit SHAs:
 | `actions/setup-node` | `v4` | `49933ea5288caeca8642d1e84afbd3f7d6820020` |
 
 Workflow permissions are restricted to `contents: read`.
+Netlify deployments use `netlify-cli@27.1.1` through `npx` so the deployment tool version is pinned.
 
 ## Required Secrets and Variables
 
@@ -57,7 +58,3 @@ Workflow permissions are restricted to `contents: read`.
 
 - `actionlint .github/workflows/*.yml` passed.
 - Repository build/test validation is limited because this repository does not include application source files, package manifests, or existing test tooling.
-
-## Knowledge Base Access
-
-The migration issue requested fetching private knowledge-base files from `jenkins-migrations/.github-private`. The repository was discoverable, but file content requests returned `404 Not Found` from the available GitHub MCP tool, so this migration was completed using the requirements included in the issue body.
